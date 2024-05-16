@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
                 </nav>
             </div>
         </header>
-        <<<<<<< HEAD <!--//header-->
+
 
 
             <!-- contact banner -->
