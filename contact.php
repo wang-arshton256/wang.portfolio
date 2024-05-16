@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
                                 <a class="nav-link" href="services.html">Services</a>
                             </li>
                             <li class="nav-item  active">
-                                <a class="nav-link" href="contact.php">Contact</a>
+                                <a class="nav-link" href="contact.">Contact</a>
                             </li>
 
                             <!--/right-btn-->
