@@ -1,40 +1,3 @@
-<?php
-
-if (isset($_POST['submit'])) {
-    $name    = $_POST['name'];
-    $email   = $_POST['email'];
-    $message = $_POST['message'];
-    $ema     = "";
-    $mes     = "from . $message";
-
-    $receiver = "wangarshton@gmail.com";
-    $message  = $name . '<br>' . $mes;
-    $header   = $ema;
-    $header .= "MIME-Version:1.0\r\n";
-    $header .= "Content-type: text/html\r\n";
-
-    $test = mail($receiver, $message, $header);
-    if ($test == true) {
-        ?>
-<script>
-    function myFunction() {
-        alert("Email sent Successfully");
-    }
-</script>
-
-<?php
-
-        header("Location:index.php");
-    } else {
-        echo 'incorrect email address';
-    }
-    ;
-
-}
-;
-
-?>
-
 
     <!doctype html>
     <html lang="en">
@@ -159,7 +122,7 @@ if (isset($_POST['submit'])) {
                         <div class="d-grid cont-main-top">
                             <!-- contact form -->
                             <div class="contacts12-main">
-                                <form action="https://sendmail.wangayouts.com/submitForm" method="post" class="main-input">
+                                <form action="sendemail.php" method="post" class="main-input">
                                     <div class="top-inputs d-grid">
                                         <input type="text" placeholder="Name" name="name" required="">
                                         <input type="email" name="email" placeholder="Email"  required="">
@@ -412,5 +375,3 @@ if (isset($_POST['submit'])) {
 
     </html>
     =======
-    <!--//header-->
-    >>>>>>> contact navbar
