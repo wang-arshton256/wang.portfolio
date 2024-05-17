@@ -1,26 +1,24 @@
 <?php
-if (isset($_POST['submit'])) {
-    $name  = $_POST['name'];
-    $email = $_POST['email'];
-    $ema   = "from . $email";
-    $mes   = "from . $message";
-    //$subject = $_POST['subject'];
-    $message = $_POST['message'];
+// Get data from form
+$name    = $_POST['name'];
+$email   = $_POST['email'];
+$message = $_POST['message'];
 
-    $receiver = "wangarshton@gmail.com";
-    //$subject  = $subj;
-    $message = $name . '<br>' . $mes;
-    $header  = $ema;
-    $header .= "MIME-Version:1.0\r\n";
-    $header .= "Content-type: text/html\r\n";
+$to      = "wangarshton@gmail.com";
+$subject = "From wanglayouts.com";
 
-    $test = mail($receiver, $message, $header);
-    if ($test == true) {
-        header("Location:index.php");
-    } else {
-        echo 'incorrect email address';
-    }
-    ;
+// The following text will be sent
+// Name = user entered name
+// Email = user entered email
+// Message = user entered message
+$txt = "Name = " . $name . "\r\n  Email = "
+    . $email . "\r\n Message =" . $message;
 
+$headers = "From: noreply@demosite.com" . "\r\n" .
+    "CC: somebodyelse@example.com";
+if ($email != null) {
+    mail($to, $subject, $txt, $headers);
 }
-;
+
+// Redirect to
+header("Location:contact.php");
