@@ -1,41 +1,16 @@
 <?php
-if (isset($_POST['submit'])) {
-    $name    = $_POST['name'];
-    $email   = $_POST['email'];
-    $ema     = "from . $email";
-    $mes     = "from . $message";
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
-
-    $receiver = "wangarshton@gmail.com";
-    $subject  = $subj;
-    $message  = $name . '<br>' . $mes;
-    $header   = $ema;
-    $header .= "MIME-Version:1.0\r\n";
-    $header .= "Content-type: text/html\r\n";
-
-    $test = mail($receiver, $subject, $message, $header);
-    if ($test == true) {
-        header("Location:index.php");
-    } else {
-        echo 'incorrect email address';
-    }
-    ;
-
+if (!empty($_POST["send"])) {
+    $name    = $_POST["name"];
+    $email   = $_POST["email"];
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
+    $conn    = mysqli_connect("localhost", "wang", "hacker", "contactform_database") or die("Connection Error: " . mysqli_error($conn));
+    $stmt    = $conn->prepare("INSERT INTO tblcontact (user_name, user_email, subject,content) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $name, $email, $subject, $message);
+    $stmt->execute();
+    $message = "Your contact information is saved successfully.";
+    $type    = "success";
+    $stmt->close();
+    $conn->close();
 }
-;
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
+require_once "contact.html";
