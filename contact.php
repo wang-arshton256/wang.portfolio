@@ -57,7 +57,7 @@ include 'action.php';
 
                             <!--/right-btn-->
                             <div class="header-btn mx-2">
-                                <a class="btn btn-style btn-primary mr-lg-5" href="contact.html"> Hire Me</a>
+                                <a class="btn btn-style btn-primary mr-lg-5" href="contact.php"> Hire Me</a>
                             </div>
                             <!--/right-btn-->
 
